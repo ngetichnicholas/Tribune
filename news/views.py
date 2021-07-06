@@ -5,6 +5,8 @@ import datetime as dt
 from .models import Article,NewsLetterRecipients
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import NewsLetterForm
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -56,6 +58,7 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-news/search.html',{"message":message})
 
+@login_required(login_url='/accounts/login/')
 def article(request,article_id):
     try:
         article = Article.objects.get(id = article_id)
