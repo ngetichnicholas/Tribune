@@ -2,8 +2,7 @@ from django.db import models
 import datetime as dt
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
-2
-
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Editor(models.Model):
@@ -32,7 +31,7 @@ class Article(models.Model):
   editor = models.ForeignKey(User,on_delete=models.CASCADE) 
   tags = models.ManyToManyField(tags)
   pub_date = models.DateTimeField(auto_now_add=True)
-  article_image = models.ImageField(upload_to='articles/', blank=True)
+  article_image = CloudinaryField('image')
 
   def __str__(self):
     return self.title
