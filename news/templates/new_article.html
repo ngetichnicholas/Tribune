@@ -1,22 +1,8 @@
+{% extends 'all-news/base.html' %}
 {% load bootstrap3 %}
 {% load static %}
-{% load claudinary %}
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>New Article</title>
-  {{form.media}}
-
-  {% block styles %} {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/news.css' %}"> {% endblock %}
-
-</head>
-
-<body>
+{% load cloudinary %}
+{% block content %}
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3"></div>
@@ -32,9 +18,4 @@
     </div>
   </div>
 
-  {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  {% bootstrap_javascript %} {% endblock %}
-</body>
-
-</html>
+  {% endblock %}
